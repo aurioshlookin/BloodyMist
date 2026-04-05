@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Nova Névoa Sangrenta - 4º Mizukami</title>
+    <!-- Adicionando o Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #e2e8f0; /* slate-200 */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(220, 38, 38, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.05), transparent 25%);
+        }
+        h1, h2, h3, .title-font {
+            font-family: 'Cinzel', serif;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7); /* slate-800 with opacity */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(71, 85, 105, 0.5); /* slate-600 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+        .blood-border {
+            border-left: 4px solid #dc2626; /* red-600 */
+        }
+        .mist-border {
+            border-left: 4px solid #38bdf8; /* sky-400 */
+        }
+        
+        /* Efeito de névoa animada no fundo */
+        .fog-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .fog-img {
+            position: absolute;
+            height: 100vh;
+            width: 300vw;
+            z-index: 1;
+            opacity: 0.5;
+            background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png') repeat-x;
+            background-size: contain;
+            animation: foglayer_moveleft 60s linear infinite;
+        }
+        @keyframes foglayer_moveleft {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-200vw, 0, 0); }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative">
+    
+    <!-- Efeito de Névoa -->
+    <div class="fog-container">
+        <div class="fog-img"></div>
+    </div>
+
+    <!-- Heda -->
+    <header class="border-b border-red-900/50 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="favicon.png" alt="Símbolo de Kirigakure" class="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700 uppercase tracking-widest">
+                        Kirigakure no Sato
+                    </h1>
+                    <p class="text-sky-300/80 text-sm mt-1 uppercase tracking-wider font-semibold">O Reinado do Yondaime Mizukami: Auriosh da Névoa Sangrenta</p>
+                    <p class="text-red-400/80 text-xs mt-1 uppercase tracking-wider font-bold"><i data-lucide="droplets" class="w-3 h-3 inline pb-0.5"></i> Líder da Guilda Hoshigaki</p>
+                </div>
+            </div>
+            <nav class="mt-4 md:mt-0 flex gap-4 text-sm font-medium flex-wrap justify-center">
+                <a href="#orgs" class="hover:text-red-400 transition-colors">Organizações</a>
+                <a href="#eventos" class="hover:text-red-400 transition-colors">Eventos & Leis</a>
+                <a href="#cargos" class="hover:text-red-400 transition-colors">Oficiais</a>
+                <a href="#verbas" class="hover:text-yellow-400 transition-colors text-yellow-500/80 font-bold">Tesouraria</a>
+                <a href="#hierarquia" class="hover:text-red-400 transition-colors">Hierarquia</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <!-- Introdução / Visão Geral -->
+        <section class="text-center max-w-3xl mx-auto space-y-4">
+            <i data-lucide="droplets" class="w-12 h-12 mx-auto text-red-600 mb-4"></i>
+            <h2 class="text-3xl font-bold text-white title-font">Uma Nova Era de Sangue e Honra</h2>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                A Vila da Névoa não perdoa os fracos e não tolera intrusos. Sob a liderança do 4º Mizukami, Kirigakure opera sob a doutrina de "Fronteiras Fechadas". Não possuímos pactos oficiais com outras vilas. Nossa força reside na organização impecável, no poder letal de nossas divisões e no terror que instilamos em nossos inimigos.
+            </p>
+        </section>
+
+        <!-- Seção: Organizações Oficiais -->
+        <section id="orgs" class="scroll-mt-40">
+            <h2 class="text-2xl font-bold text-red-500 title-font border-b border-slate-700 pb-2 mb-8 flex items-center gap-2">
+                <i data-lucide="swords" class="w-6 h-6"></i> Estrutura Militar
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- 7SM -->
+                <div class="glass-card p-6 rounded-lg blood-border hover:border-red-500 transition-colors">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white title-font">7 Espadachins da Névoa (7SM)</h3>
+                        <span class="bg-red-900/50 text-red-300 text-xs px-2 py-1 rounded border border-red-700/50">Elite PvP</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-4">
+                        A elite ofensiva da vila. Portadores das 7 espadas lendárias. Representam o orgulho e o poder destrutivo da Névoa.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-red-500 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Seleção Inicial:</strong> Torneio de Pontos (Round-Robin). Cada candidato luta duelos individuais (1v1) contra todos os outros participantes (ex: em um grupo de 10, cada um faz 9 lutas). Os 7 shinobis que acumularem mais vitórias escolhem suas espadas por ordem de colocação.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-red-500 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Blood Challenge:</strong> Única forma de roubar um título. O desafiante aposta sua cidadania (exílio/renegado se perder). O espadachim aposta o título. Recusa não é permitida.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-5 pt-4 border-t border-slate-700/50 flex gap-3">
+                        <button onclick="openModal('7SM', 'regras')" class="flex-1 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-2 shadow-sm"><i data-lucide="scale" class="w-3.5 h-3.5"></i> Regras</button>
+                        <button onclick="openModal('7SM', 'bonificacoes')" class="flex-1 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-2 shadow-sm"><i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-500"></i> Bonificações</button>
+                    </div>
+                </div>
+
+                <!-- ANBU -->
+                <div class="glass-card p-6 rounded-lg mist-border hover:border-sky-400 transition-colors">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white title-font">Divisão Especial (ANBU)</h3>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs px-2 py-1 rounded border border-sky-700/50">14 Vagas</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-4">
+                        As sombras do Mizukami. Focados na proteção contínua do Kage e na caçada implacável aos alvos do Bingo Book (renegados).
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-sky-400 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Identidade Apagada:</strong> Proibido falar no chat público enquanto mascarado. Comunicação apenas por RP de ações ou chat privado. Apenas o alto escalão da vila (Mizukami e Cúpula) sabe quem são seus membros.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-sky-400 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Dever Obscuro:</strong> Cumprem missões de assassinato contra traidores e renegados. Não há pagamento, recompensas ou glória pública; eles caçam porque é o dever absoluto e não reconhecido que devem à Névoa.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-5 pt-4 border-t border-slate-700/50 flex gap-3">
+                        <button onclick="openModal('ANBU', 'regras')" class="flex-1 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-2 shadow-sm"><i data-lucide="scale" class="w-3.5 h-3.5"></i> Regras</button>
+                        <button onclick="openModal('ANBU', 'bonificacoes')" class="flex-1 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-2 shadow-sm"><i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-500"></i> Bonificações</button>
+                    </div>
+                </div>
+
+                <!-- Polícia -->
+                <div class="glass-card p-6 rounded-lg mist-border hover:border-sky-400 transition-colors">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white title-font">Corporação Policial</h3>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs px-2 py-1 rounded border border-sky-700/50">20 Vagas</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-4">
+                        A primeira linha de defesa. Operam sob a doutrina de "Fronteira Fechada" para garantir a soberania do território.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-sky-400 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Patrulhas Externas:</strong> Realizam rondas constantes nos mapas ao redor da vila para impedir acesso de intrusos e detectar invasões.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-sky-400 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Batedores:</strong> Ao avistar forças inimigas, recuam para alertar a cúpula antes de iniciar o combate massivo.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-sky-400 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Prisão:</strong> Usada como humilhação final após derrotar um invasor em batalha.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-5 pt-4 border-t border-slate-700/50 flex gap-3">
+                        <button onclick="openModal('Policial', 'regras')" class="flex-1 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-2 shadow-sm"><i data-lucide="scale" class="w-3.5 h-3.5"></i> Regras</button>
+                        <button onclick="openModal('Policial', 'bonificacoes')" class="flex-1 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-2 shadow-sm"><i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-500"></i> Bonificações</button>
+                    </div>
+                </div>
+
+                <!-- Médicos -->
+                <div class="glass-card p-6 rounded-lg blood-border hover:border-red-500 transition-colors">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white title-font">Corporação Médica</h3>
+                        <span class="bg-red-900/50 text-red-300 text-xs px-2 py-1 rounded border border-red-700/50">20 Vagas (+10% Chakra)</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-4">
+                        Conhecidos como o <strong class="text-red-400">Escudo de Sangue</strong>. Não são meros suportes, são a espinha dorsal de qualquer operação de elite.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-red-500 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Presença Obrigatória:</strong> Caçadas da ANBU e rondas de alto risco da Polícia devem ser acompanhadas por médicos.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-red-500 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-slate-200">Priorização Tática:</strong> A vida do próprio médico vem em primeiro lugar, seguida pela vida das lideranças da vila e, por último, a vida dos outros ninjas da Névoa.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-5 pt-4 border-t border-slate-700/50 flex gap-3">
+                        <button onclick="openModal('Médica', 'regras')" class="flex-1 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-2 shadow-sm"><i data-lucide="scale" class="w-3.5 h-3.5"></i> Regras</button>
+                        <button onclick="openModal('Médica', 'bonificacoes')" class="flex-1 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold py-2 rounded transition-colors flex items-center justify-center gap-2 shadow-sm"><i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-500"></i> Bonificações</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção: Eventos e Diplomacia -->
+        <section id="eventos" class="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-40">
+            
+            <!-- Eventos -->
+            <div>
+                <h2 class="text-2xl font-bold text-red-500 title-font border-b border-slate-700 pb-2 mb-6 flex items-center gap-2">
+                    <i data-lucide="skull" class="w-6 h-6"></i> Tradições da Névoa
+                </h2>
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-lg space-y-4">
+                        <h3 class="text-lg font-bold text-white title-font text-center">Bloody Mist</h3>
+                        <p class="text-sm text-slate-300 text-center mb-4">Evento semanal de PvP sangrento no formato Free-for-All (Todos contra Todos).</p>
+                        <div class="bg-slate-900/80 p-4 rounded border border-slate-700 text-sm text-slate-400 space-y-2">
+                            <p><strong class="text-slate-200">Regras:</strong> Todos os participantes são soltos simultaneamente em um mapa delimitado. Não há times, não há regras de engajamento, não há aliados. Apenas o caos absoluto e derramamento de sangue. <strong class="text-red-400">Vencedores anteriores (portadores do título Bloody Ninja) estão proibidos de participar de futuras edições.</strong></p>
+                            <p><strong class="text-slate-200">Objetivo:</strong> Sobrevivência extrema. O objetivo não é apenas matar, mas ser o <strong>último ninja de pé</strong> no meio da carnificina, provando ser o mais letal e astuto de Kirigakure.</p>
+                            <p><strong class="text-slate-200">Recompensa:</strong> Ryos, um cargo exclusivo de reconhecimento no Discord da vila e pontos cruciais na avaliação do Exame Chunin.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-lg space-y-4">
+                        <h3 class="text-lg font-bold text-white title-font text-center flex justify-center items-center gap-2"><i data-lucide="users" class="w-5 h-5 text-red-500"></i> Demon Brothers</h3>
+                        <p class="text-sm text-slate-300 text-center mb-4">Evento mensal de PvP em duplas (2v2).</p>
+                        <div class="bg-slate-900/80 p-4 rounded border border-slate-700 text-sm text-slate-400 space-y-2">
+                            <p><strong class="text-slate-200">Regras:</strong> Torneio em chaves de eliminação. A dupla que vencer ganha o direito de desafiar os atuais Demon Brothers.</p>
+                            <p><strong class="text-slate-200">Desafio:</strong> Se os atuais vencerem, mantêm o título. Se os desafiantes vencerem (ou se os atuais não comparecerem), assumem o manto de Demon Brothers por 1 mês.</p>
+                            <p><strong class="text-slate-200">Recompensa:</strong> 10.000 Ryo para cada vencedor (Total 20.000) e o cobiçado título temporário.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-lg space-y-4">
+                        <h3 class="text-lg font-bold text-white title-font text-center flex justify-center items-center gap-2"><i data-lucide="award" class="w-5 h-5 text-yellow-500"></i> Torneio Sannin</h3>
+                        <p class="text-sm text-slate-300 text-center mb-4">Evento de Fim de Mandato em trios (3v3).</p>
+                        <div class="bg-slate-900/80 p-4 rounded border border-slate-700 text-sm text-slate-400 space-y-2">
+                            <p><strong class="text-slate-200">Regras:</strong> Equipes de 3 pessoas se enfrentam em combates táticos. A consagração final da força conjunta da vila para decidir a lenda da geração.</p>
+                            <p><strong class="text-slate-200">Recompensa:</strong> Título eterno de "Sannin Lendário" e 63.000 Ryo distribuídos: 30k (1º lugar), 21k (2º lugar) e 12k (3º lugar).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diplomacia -->
+            <div>
+                <h2 class="text-2xl font-bold text-red-500 title-font border-b border-slate-700 pb-2 mb-6 flex items-center gap-2">
+                    <i data-lucide="scroll" class="w-6 h-6"></i> Política Externa
+                </h2>
+                <div class="glass-card p-6 rounded-lg space-y-4">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center border border-slate-700">
+                            <i data-lucide="shield-off" class="text-slate-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white title-font">Isolacionismo Armado</h3>
+                            <p class="text-xs text-red-400">Zero Pactos Oficiais</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300">
+                        A Névoa não assina tratados de paz. Nossa política oficial é de neutralidade agressiva. Qualquer ninja não pertencente a Kirigakure em nosso território é considerado um alvo.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-slate-700/50">
+                        <h4 class="text-white font-bold text-sm mb-2 flex items-center gap-2">
+                            <i data-lucide="eye-off" class="w-4 h-4 text-purple-500"></i> Aliança das Sombras
+                        </h4>
+                        <p class="text-sm text-slate-400">
+                            Contratos não oficiais existem com a facção renegada <strong class="text-purple-400">Kuronami</strong> (Akatsuki). Eles são financiados secretamente para atuar como mercenários em conflitos contra a Folha ou Areia, mantendo as mãos da Névoa formalmente limpas perante o mundo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exame Chunin -->
+            <div class="md:col-span-2 mt-4">
+                <h2 class="text-2xl font-bold text-red-500 title-font border-b border-slate-700 pb-2 mb-6 flex items-center gap-2">
+                    <i data-lucide="graduation-cap" class="w-6 h-6"></i> Ascensão, Exames e Títulos
+                </h2>
+                
+                <!-- Títulos de Prestígio -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <!-- Sannin Lendário -->
+                    <div class="glass-card p-5 rounded-lg border-yellow-500/50 border-t-4 bg-yellow-900/10 flex flex-col h-full shadow-[0_0_15px_rgba(234,179,8,0.1)]">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="award" class="w-6 h-6 text-yellow-500"></i>
+                            <h3 class="text-lg font-bold text-white title-font">Sannin Lendário</h3>
+                        </div>
+                        <span class="bg-yellow-900/50 text-yellow-300 text-[10px] px-2 py-1 rounded border border-yellow-700/50 w-max mb-3 uppercase font-bold tracking-wider">Fim de Mandato</span>
+                        <p class="text-xs text-slate-300 flex-grow">
+                            O ápice do reconhecimento. Concedido ao trio que vencer o Torneio Sannin (3v3). Marca o nome dos shinobis para sempre na história da vila como lendas vivas.
+                        </p>
+                    </div>
+
+                    <!-- Demon Brothers -->
+                    <div class="glass-card p-5 rounded-lg border-purple-500/50 border-t-4 bg-purple-900/10 flex flex-col h-full shadow-[0_0_15px_rgba(168,85,247,0.1)]">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="users" class="w-6 h-6 text-purple-400"></i>
+                            <h3 class="text-lg font-bold text-white title-font">Demon Brothers</h3>
+                        </div>
+                        <span class="bg-purple-900/50 text-purple-300 text-[10px] px-2 py-1 rounded border border-purple-700/50 w-max mb-3 uppercase font-bold tracking-wider">Rotativo (Mensal)</span>
+                        <p class="text-xs text-slate-300 flex-grow">
+                            Concedido à dupla mais letal e em sintonia da vila que vencer o torneio mensal. Se derrotados pelos desafiantes no mês seguinte, o título é transferido.
+                        </p>
+                    </div>
+
+                    <!-- Bloody Ninja -->
+                    <div class="glass-card p-5 rounded-lg border-red-500/50 border-t-4 bg-red-900/10 flex flex-col h-full shadow-[0_0_15px_rgba(239,68,68,0.1)]">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="skull" class="w-6 h-6 text-red-500"></i>
+                            <h3 class="text-lg font-bold text-white title-font">Bloody Ninja</h3>
+                        </div>
+                        <span class="bg-red-900/50 text-red-300 text-[10px] px-2 py-1 rounded border border-red-700/50 w-max mb-3 uppercase font-bold tracking-wider">Eterno</span>
+                        <p class="text-xs text-slate-300 flex-grow">
+                            O título da sobrevivência pura. Concedido unicamente ao último ninja de pé após a carnificina do Expurgo Semanal "Bloody Mist". Uma vez conquistado, o ninja é imortalizado na história e não poderá mais participar de edições futuras do evento.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-lg blood-border">
+                    <h3 class="text-xl font-bold text-white title-font mb-4">Exame Chunin (Fim de Mandato)</h3>
+                    <p class="text-sm text-slate-300 mb-6">A avaliação para subir de patente na Névoa Sangrenta é rigorosa, transparente e baseada em mérito, lealdade e sobrevivência.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Vagas Diretas -->
+                        <div class="space-y-4">
+                            <div class="bg-slate-900/80 p-4 rounded border border-slate-700 border-l-4 border-l-red-500">
+                                <h4 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="trophy" class="w-4 h-4 text-red-500"></i> O Campeão (1 Vaga Chunin)</h4>
+                                <p class="text-sm text-slate-400">Garantida de forma direta ao vencedor absoluto da final do evento do Exame Chunin.</p>
+                            </div>
+                            <div class="bg-slate-900/80 p-4 rounded border border-slate-700 border-l-4 border-l-purple-500">
+                                <h4 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="star" class="w-4 h-4 text-purple-500"></i> Mérito Extraordinário (1 Vaga Special Jonin)</h4>
+                                <p class="text-sm text-slate-400">Concedida ao jogador que mais se destacar na vila, seja como player influente ou por ajudar os membros intensamente. Não é necessário passar da 2ª fase do exame. O nome será avaliado ao longo de todo o mandato e anunciado no dia do Exame.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Sistema de Pontos -->
+                        <div class="bg-slate-900/80 p-4 rounded border border-slate-700">
+                            <h4 class="text-sky-400 font-bold mb-3 flex items-center gap-2"><i data-lucide="clipboard-list" class="w-4 h-4"></i> Avaliação do Conselho (Vagas Restantes)</h4>
+                            <div class="bg-red-900/20 border border-red-900/50 p-2 rounded mb-3">
+                                <p class="text-xs text-red-400 uppercase tracking-wide font-bold text-center">Requisito: Passar do "Mar de Sangue"</p>
+                            </div>
+                            <p class="text-sm text-slate-400 mb-3">Os ninjas que passarem do Mar de Sangue serão avaliados com notas de <strong class="text-slate-200">1 a 10</strong> nos critérios abaixo. A soma total decidirá quem merece a ascensão:</p>
+                            <ul class="text-sm text-slate-400 space-y-2 list-none">
+                                <li><strong class="text-slate-200 block"><i data-lucide="check-circle" class="w-3 h-3 inline text-sky-500 mr-1"></i> Contribuição:</strong> Auxilia a vila fazendo eventos, doando para o banco ou ajudando novatos?</li>
+                                <li><strong class="text-slate-200 block"><i data-lucide="check-circle" class="w-3 h-3 inline text-sky-500 mr-1"></i> Presença e Histórico:</strong> É um jogador reconhecido na vila ou já participou de alguma organização oficial?</li>
+                                <li><strong class="text-slate-200 block"><i data-lucide="check-circle" class="w-3 h-3 inline text-sky-500 mr-1"></i> Veterania:</strong> Joga há muito tempo ou há pouco tempo? (Tempo de dedicação estimado em meses).</li>
+                                <li><strong class="text-slate-200 block"><i data-lucide="check-circle" class="w-3 h-3 inline text-sky-500 mr-1"></i> Aprovação da Cúpula:</strong> O quanto cada membro do Conselho e o próprio Kage acreditam que o jogador merece o título de Chunin?</li>
+                                <li><strong class="text-slate-200 block"><i data-lucide="check-circle" class="w-3 h-3 inline text-sky-500 mr-1"></i> Letalidade:</strong> Quantas vitórias o jogador acumulou nos eventos semanais do "Bloody Mist"?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Cargos e Oficiais -->
+        <section id="cargos" class="scroll-mt-40">
+            <h2 class="text-2xl font-bold text-red-500 title-font border-b border-slate-700 pb-2 mb-8 flex items-center gap-2">
+                <i data-lucide="briefcase" class="w-6 h-6"></i> Oficiais da Vila
+            </h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+                <!-- Tesoureiros -->
+                <div class="bg-slate-800/50 border border-slate-600 p-5 rounded flex flex-col items-center text-center hover:bg-slate-800 transition-colors">
+                    <i data-lucide="coins" class="w-8 h-8 text-yellow-400 mb-3"></i>
+                    <h4 class="text-white font-bold mb-2">Tesoureiros</h4>
+                    <p class="text-xs text-slate-400">
+                        Administram os fundos gerais da vila e possuem acesso direto à conta bancária. Responsáveis por financiar operações, pagar recompensas, gerenciar o fluxo e anunciar itens pelo banco.
+                    </p>
+                </div>
+
+                <!-- Líder de Raid -->
+                <div class="bg-slate-800/50 border border-red-900/50 p-5 rounded flex flex-col items-center text-center hover:bg-slate-800 transition-colors">
+                    <i data-lucide="swords" class="w-8 h-8 text-red-500 mb-3"></i>
+                    <h4 class="text-white font-bold mb-2">Líder de Raid</h4>
+                    <p class="text-xs text-slate-400">
+                        Comandante de campo. Convoca a vila para raids massivas, organiza os esquadrões e dita as estratégias de combate durante as batalhas.
+                    </p>
+                </div>
+
+                <!-- Instrutor -->
+                <div class="bg-slate-800/50 border border-sky-900/50 p-5 rounded flex flex-col items-center text-center hover:bg-slate-800 transition-colors">
+                    <i data-lucide="book-open" class="w-8 h-8 text-sky-400 mb-3"></i>
+                    <h4 class="text-white font-bold mb-2">Instrutor</h4>
+                    <p class="text-xs text-slate-400">
+                        Guia dos novatos. Atua no canal de novatos do Discord ensinando mecânicas e estratégias para garantir o futuro da vila.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção: Tesouraria e Verbas -->
+        <section id="verbas" class="scroll-mt-40">
+            <h2 class="text-2xl font-bold text-yellow-500 title-font border-b border-slate-700 pb-2 mb-8 flex items-center gap-2">
+                <i data-lucide="landmark" class="w-6 h-6"></i> Planejamento Financeiro
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Detalhamento de Verbas -->
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <!-- Bloco: Orçamentos de Organizações -->
+                    <div>
+                        <h3 class="text-sm font-bold text-sky-400 uppercase tracking-widest mb-4 border-b border-slate-700/50 pb-2">Orçamentos de Organizações</h3>
+                        <div class="space-y-4">
+                            <!-- ANBU -->
+                            <div class="bg-slate-900/60 border border-slate-600 rounded-lg p-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-white font-bold flex items-center gap-2"><i data-lucide="ghost" class="w-4 h-4 text-sky-400"></i> Orçamento: ANBU</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Verba destinada a 18 alvos do Bingo Book: 2 Ninjas Renegados e 16 Ninjas do Alto Escalão de outras vilas.</p>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <span class="text-yellow-400 font-bold text-lg">10.000 Ryo</span>
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Semanal</p>
+                                </div>
+                            </div>
+
+                            <!-- 7SM -->
+                            <div class="bg-slate-900/60 border border-slate-600 rounded-lg p-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-white font-bold flex items-center gap-2"><i data-lucide="swords" class="w-4 h-4 text-red-400"></i> Orçamento: 7SM</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Verba flutuante destinada à Grande Caçada Mensal liderada pelo Mizukami.</p>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <span class="text-yellow-400 font-bold text-lg">7k ~ 35k Ryo</span>
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Mensal</p>
+                                </div>
+                            </div>
+
+                            <!-- Polícia e Médicos -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-slate-900/60 border border-slate-600 rounded-lg p-4 flex flex-col justify-center text-center gap-1">
+                                    <h4 class="text-white font-bold text-sm flex justify-center items-center gap-1"><i data-lucide="shield" class="w-3.5 h-3.5 text-sky-400"></i> Fundo Policial</h4>
+                                    <p class="text-[10px] text-slate-400 mb-1">Bonificações por prisões</p>
+                                    <span class="text-yellow-400 font-bold">5.000 Ryo <span class="text-[10px] text-slate-500 uppercase tracking-widest font-normal">/ Sem</span></span>
+                                </div>
+                                <div class="bg-slate-900/60 border border-slate-600 rounded-lg p-4 flex flex-col justify-center text-center gap-1">
+                                    <h4 class="text-white font-bold text-sm flex justify-center items-center gap-1"><i data-lucide="plus-square" class="w-3.5 h-3.5 text-red-500"></i> Fundo Médico</h4>
+                                    <p class="text-[10px] text-slate-400 mb-1">Bonificações por suporte/cura</p>
+                                    <span class="text-yellow-400 font-bold">5.000 Ryo <span class="text-[10px] text-slate-500 uppercase tracking-widest font-normal">/ Sem</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bloco: Premiações de Eventos -->
+                    <div>
+                        <h3 class="text-sm font-bold text-purple-400 uppercase tracking-widest mb-4 border-b border-slate-700/50 pb-2">Premiações de Eventos</h3>
+                        <div class="space-y-4">
+                            <!-- Bloody Mist -->
+                            <div class="bg-slate-900/60 border border-slate-600 rounded-lg p-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-white font-bold flex items-center gap-2"><i data-lucide="skull" class="w-4 h-4 text-red-500"></i> Evento: Bloody Mist</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Premiação para o único sobrevivente do Expurgo Semanal, além de receber o título "Bloody Ninja".</p>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <span class="text-yellow-400 font-bold text-lg">10.000 Ryo</span>
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Semanal</p>
+                                </div>
+                            </div>
+
+                            <!-- Demon Brothers -->
+                            <div class="bg-slate-900/60 border border-slate-600 rounded-lg p-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-white font-bold flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-purple-400"></i> Evento: Demon Brothers</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Torneio Mensal 2v2. Premiação dividida para a dupla campeã (10k cada).</p>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <span class="text-yellow-400 font-bold text-lg">20.000 Ryo</span>
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Mensal</p>
+                                </div>
+                            </div>
+
+                            <!-- Torneio Sannin -->
+                            <div class="bg-slate-900/60 border border-slate-600 rounded-lg p-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-white font-bold flex items-center gap-2"><i data-lucide="star" class="w-4 h-4 text-yellow-500"></i> Evento: Torneio Sannin</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Torneio 3v3 de Fim de mandato. 30k (1º lugar), 21k (2º lugar) e 12k (3º lugar).</p>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <span class="text-yellow-400 font-bold text-lg">63.000 Ryo</span>
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest">Fim de Mand.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Resumo Geral -->
+                <div class="glass-card rounded-lg border-yellow-500/50 p-6 flex flex-col justify-between shadow-[0_0_20px_rgba(234,179,8,0.1)] h-max sticky top-32">
+                    <div>
+                        <h3 class="text-xl font-bold text-white title-font border-b border-slate-700 pb-3 mb-4">Projeção de Gastos</h3>
+                        <p class="text-xs text-slate-400 mb-6">Esta tabela representa a projeção de gastos do mandato de 3 meses, contabilizando as despesas fixas semanais e as flutuações das caçadas do 7SM e grandes eventos.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-end border-b border-slate-700/50 pb-2">
+                                <span class="text-sm font-semibold text-slate-300">Gasto Semanal <span class="block text-[10px] text-slate-500 font-normal">Fixo (ANBU + Pol + Méd + Bloody Mist)</span></span>
+                                <span class="text-lg font-bold text-yellow-400">30.000 <span class="text-xs text-yellow-600">Ryo</span></span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-slate-700/50 pb-2">
+                                <span class="text-sm font-semibold text-slate-300">Gasto Mensal <span class="block text-[10px] text-slate-500 font-normal">Semanas (120k) + 7SM + Demon Brothers</span></span>
+                                <span class="text-xl font-bold text-yellow-400">147k ~ 175k <span class="text-xs text-yellow-600">Ryo</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-yellow-900/20 border border-yellow-600/50 rounded p-4 text-center">
+                        <span class="block text-xs text-yellow-500 uppercase tracking-widest font-bold mb-1">Custo do Mandato (3 Meses + Torneio Sannin)</span>
+                        <span class="text-3xl font-bold text-yellow-400 title-font tracking-wider">504k ~ 588k <span class="text-sm text-yellow-600">Ryo</span></span>
+                        <span class="block text-[10px] text-yellow-600/80 mt-2 uppercase tracking-widest border-t border-yellow-700/50 pt-1">Reserva Máxima Recomendada: 588.000 Ryo</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção: Hierarquia de Comando -->
+        <section id="hierarquia" class="scroll-mt-40">
+            <h2 class="text-2xl font-bold text-red-500 title-font border-b border-slate-700 pb-2 mb-10 flex items-center gap-2">
+                <i data-lucide="network" class="w-6 h-6"></i> Cadeia de Comando
+            </h2>
+
+            <div class="flex flex-col items-center w-full space-y-5">
+                
+                <!-- 1. Mizukami -->
+                <div class="glass-card p-4 rounded-lg border-red-500 border-2 w-full max-w-xs text-center relative shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+                    <i data-lucide="crown" class="w-10 h-10 text-red-500 mx-auto mb-2"></i>
+                    <h3 class="text-2xl font-bold text-white title-font">Mizukami</h3>
+                    <p class="text-red-400 text-xs uppercase tracking-widest font-bold mt-1">Líder Absoluto</p>
+                </div>
+                
+                <div class="w-1 h-8 bg-slate-700 rounded"></div>
+                
+                <!-- 2. Conselho -->
+                <div class="glass-card p-4 rounded-lg border-slate-400 border w-full max-w-sm text-center">
+                    <i data-lucide="users" class="w-6 h-6 text-slate-300 mx-auto mb-2"></i>
+                    <h3 class="text-xl font-bold text-white title-font">Conselho</h3>
+                    <p class="text-slate-400 text-xs mt-1">Braços direito e esquerdo do Mizukami</p>
+                </div>
+
+                <div class="w-1 h-8 bg-slate-700 rounded"></div>
+
+                <!-- 3. Líderes de Organizações -->
+                <div class="glass-card p-6 rounded-lg border-sky-500/30 border w-full max-w-3xl text-center">
+                    <h3 class="text-lg font-bold text-white title-font mb-5 uppercase tracking-wider">Líderes de Organizações</h3>
+                    <div class="flex flex-col items-center gap-4 w-full">
+                        <!-- 7SM no Topo -->
+                        <div class="bg-red-900/30 border border-red-700/50 px-4 py-4 rounded text-red-300 text-sm font-bold flex flex-col items-center justify-center gap-2 shadow-[0_0_10px_rgba(220,38,38,0.1)] w-full max-w-xs mx-auto">
+                            <i data-lucide="swords" class="w-6 h-6 text-red-400"></i> Líder 7SM
+                        </div>
+                        
+                        <!-- Restante na Base -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                            <div class="bg-slate-800/80 border border-slate-600 px-4 py-4 rounded text-sky-300 text-sm font-semibold flex flex-col items-center justify-center gap-2">
+                                <i data-lucide="ghost" class="w-6 h-6 text-sky-400"></i> Líder ANBU
+                            </div>
+                            <div class="bg-slate-800/80 border border-slate-600 px-4 py-4 rounded text-sky-300 text-sm font-semibold flex flex-col items-center justify-center gap-2">
+                                <i data-lucide="shield" class="w-6 h-6 text-sky-400"></i> Líder Policial
+                            </div>
+                            <div class="bg-slate-800/80 border border-slate-600 px-4 py-4 rounded text-red-300 text-sm font-semibold flex flex-col items-center justify-center gap-2">
+                                <i data-lucide="plus-square" class="w-6 h-6 text-red-500"></i> Líder Médico
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-1 h-8 bg-slate-700 rounded"></div>
+
+                <!-- 4. Lendas da Vila -->
+                <div class="glass-card p-5 rounded-lg border-yellow-500/40 border w-full max-w-3xl text-center shadow-[0_0_15px_rgba(234,179,8,0.1)]">
+                    <h3 class="text-md font-bold text-yellow-400 title-font flex justify-center items-center gap-2 mb-4">
+                        <i data-lucide="star" class="w-5 h-5"></i> Lendas da Vila
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto w-full">
+                        <div class="bg-slate-900/60 border border-slate-600 py-2 px-1 rounded text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-center text-center">Ex-Mizukamis</div>
+                        <div class="bg-yellow-900/20 border border-yellow-600/50 py-2 px-1 rounded text-yellow-200 text-xs sm:text-sm font-bold flex items-center justify-center text-center">Sannins Lendários</div>
+                        <div class="bg-red-900/20 border border-red-600/50 py-2 px-1 rounded text-red-300 text-xs sm:text-sm font-bold flex items-center justify-center text-center">Demon Brothers</div>
+                        <div class="bg-red-900/20 border border-red-600/50 py-2 px-1 rounded text-red-300 text-xs sm:text-sm font-bold flex items-center justify-center text-center">Bloody Ninjas</div>
+                    </div>
+                    <p class="text-slate-400 text-[10px] mt-4 uppercase tracking-wider">Títulos de prestígio eterno ou rotativo conquistados no campo de batalha</p>
+                </div>
+
+                <div class="w-1 h-8 bg-slate-700 rounded"></div>
+
+                <!-- 5. Líderes de Guildas -->
+                <div class="glass-card p-6 rounded-lg border-purple-500/30 border w-full max-w-3xl text-center">
+                    <h3 class="text-md font-bold text-purple-300 title-font mb-5 flex justify-center items-center gap-2">
+                        <i data-lucide="flag" class="w-5 h-5"></i> Líderes de Guildas Maiores
+                    </h3>
+                    <div class="flex flex-wrap justify-center gap-3 mb-5">
+                        <span class="bg-slate-900 border border-slate-700 px-5 py-2 rounded text-slate-300 text-sm font-medium">Akashi</span>
+                        <span class="bg-slate-900 border border-slate-700 px-5 py-2 rounded text-slate-300 text-sm font-medium">Akitesoka</span>
+                        <span class="bg-slate-900 border border-slate-700 px-5 py-2 rounded text-slate-300 text-sm font-medium">Higure</span>
+                        <span class="bg-red-900/30 border border-red-700 px-5 py-2 rounded text-red-300 text-sm font-bold shadow-sm">Hoshigaki</span>
+                    </div>
+                    <div class="bg-black/30 border-l-2 border-purple-500 p-3 text-center text-xs text-slate-400 italic rounded-r">
+                        "Para uma nova guilda integrar este patamar e ser reconhecida oficialmente, seu líder deve solicitar audiência com o Conselho e provar o valor de seus membros para a vila."
+                    </div>
+                </div>
+
+                <div class="w-1 h-8 bg-slate-700 rounded"></div>
+
+                <!-- 6. Líderes de Clãs -->
+                <div class="glass-card p-6 rounded-lg border-emerald-500/40 border w-full max-w-3xl text-center shadow-[0_0_15px_rgba(16,185,129,0.05)]">
+                    <h3 class="text-md font-bold text-emerald-400 title-font mb-5 flex justify-center items-center gap-2 uppercase tracking-wide">
+                        <i data-lucide="tent" class="w-5 h-5"></i> Líderes de Clãs
+                    </h3>
+                    <div class="flex flex-wrap justify-center gap-3 mb-4">
+                        <span class="bg-emerald-900/40 border border-emerald-500 px-5 py-2 rounded text-emerald-300 text-sm font-bold shadow-[0_0_10px_rgba(16,185,129,0.2)]">Hoshi</span>
+                        <span class="bg-slate-900 border border-slate-700 px-5 py-2 rounded text-slate-300 text-sm font-medium">Kazuki</span>
+                        <span class="bg-slate-900 border border-slate-700 px-5 py-2 rounded text-slate-300 text-sm font-medium">Murasame</span>
+                        <span class="bg-slate-900 border border-slate-700 px-5 py-2 rounded text-slate-300 text-sm font-medium">Sakame</span>
+                        <span class="bg-slate-900 border border-slate-700 px-5 py-2 rounded text-slate-300 text-sm font-medium">Yagyu</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest border-t border-slate-700/50 pt-3">Representação Sanguínea • Poder Político e de Liderança Limitados</p>
+                </div>
+
+                <div class="w-1 h-8 bg-slate-700 rounded"></div>
+
+                <!-- 7. Oficiais Estratégicos -->
+                <div class="glass-card p-6 rounded-lg border-yellow-600/30 border w-full max-w-3xl text-center">
+                    <h3 class="text-sm font-bold text-yellow-500/80 title-font mb-5 flex justify-center items-center gap-2 uppercase tracking-wide">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i> Oficiais Administrativos e Táticos
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                        <div class="bg-slate-800/80 border border-slate-600 px-4 py-3 rounded text-yellow-300 text-sm font-semibold flex flex-col items-center gap-2">
+                            <i data-lucide="coins" class="w-5 h-5 text-yellow-400"></i> Tesoureiros
+                        </div>
+                        <div class="bg-slate-800/80 border border-slate-600 px-4 py-3 rounded text-red-300 text-sm font-semibold flex flex-col items-center gap-2">
+                            <i data-lucide="swords" class="w-5 h-5 text-red-500"></i> Líder de Raid
+                        </div>
+                        <div class="bg-slate-800/80 border border-slate-600 px-4 py-3 rounded text-sky-300 text-sm font-semibold flex flex-col items-center gap-2">
+                            <i data-lucide="book-open" class="w-5 h-5 text-sky-400"></i> Instrutor
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Futta -->
+    <footer class="border-t border-slate-800 bg-slate-900/90 py-6 mt-12 text-center text-sm text-slate-500">
+        <p>Documento Oficial Administrativo - Kirigakure no Sato</p>
+        <p class="mt-2 text-xs text-red-500/50 font-semibold tracking-widest uppercase">Assinado: Auriosh da Névoa Sangrenta • Yondaime Mizukami • Hoshigaki</p>
+    </footer>
+
+    <!-- Modal Base (Oculto por padrão) -->
+    <div id="orgModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="glass-card w-full max-w-lg rounded-lg shadow-2xl relative z-10 border border-slate-600 transform transition-all flex flex-col max-h-[90vh]">
+            
+            <!-- Modal Header -->
+            <div class="p-5 border-b border-slate-700 flex justify-between items-center bg-slate-800/50 rounded-t-lg">
+                <div class="flex items-center gap-3">
+                    <i id="modalIcon" data-lucide="info" class="w-6 h-6 text-sky-400"></i>
+                    <div>
+                        <h3 id="modalTitle" class="text-xl font-bold text-white title-font">Título</h3>
+                        <p id="modalSubtitle" class="text-xs text-slate-400 uppercase tracking-widest font-semibold mt-0.5">Subtítulo</p>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white transition-colors p-1 rounded-full hover:bg-slate-700/50">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto">
+                <div id="modalContent" class="text-sm text-slate-300 space-y-4">
+                    <!-- O conteúdo será injetado aqui pelo JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-slate-700 bg-slate-900/50 rounded-b-lg flex justify-end">
+                <button onclick="closeModal()" class="bg-slate-700 hover:bg-slate-600 text-white text-sm font-bold py-2 px-6 rounded transition-colors shadow-sm border border-slate-600">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aikon o shokika suru -->
+    <script>
+        // --- DADOS DOS MODAIS (Regras e Bonificações) ---
+        const modalData = {
+            '7SM': {
+                'regras': [
+                    "A única proibição de um 7SM é recusar um desafio. Todo desafio deve ser aceito em até 1 dia e realizado no prazo máximo de 2 dias.",
+                    "Os desafios ocorrerão obrigatoriamente na Arena de Asoki, sendo anunciados previamente por um líder no Discord da Névoa e no Oficial (para que todas as vilas presenciem o nosso poder bélico).",
+                    "A primeira partida de um desafio é de Demonstração, onde o 7SM deve utilizar sua espada única.",
+                    "Em caso de vitória do 7SM na demonstração, a batalha vira uma MD3 (Melhor de 3). A partir daí, é proibido o uso da espada única, sendo permitidas apenas espadas que exijam no máximo 80 de STR.",
+                    "Em caso de derrota do 7SM na demonstração, a batalha vira uma MD3 onde o 7SM continua utilizando a sua espada única. Se ele vencer esta MD3, o confronto prossegue para uma nova MD3 final, sem a espada única. Se perder a MD3 (com a espada), ele perde o título e a arma para o desafiante."
+                ],
+                'bonificacoes': [
+                    "Ser portador de uma das 7 Espadas Lendárias da Névoa é a maior honra da organização, significando que o ninja carrega um dos tesouros da vila por puro mérito e poder.",
+                    "Participação em eventos exclusivos de Caçada liderados ocasionalmente pelo próprio Mizukami, com premiações individuais que variam entre 1.000 e 5.000 Ryos ao término da missão."
+                ],
+                'color': 'red'
+            },
+            'ANBU': {
+                'regras': [
+                    "Manter o total sigilo e ocultar a própria identidade em qualquer situação pública da vila.",
+                    "Cumprir missões semanais obrigatórias de assassinato determinadas pela liderança.",
+                    "Rotação de Elenco: Os 5 membros que fizerem a menor pontuação de assassinatos na semana serão removidos para que novos membros possam experimentar a organização. Em caso de empate na pontuação baixa, haverá um desafio mortal entre os empatados para decidir a vaga."
+                ],
+                'bonificacoes': [
+                    "Posse da cobiçada Máscara ANBU, que concede um bônus passivo de +7 em todos os atributos base do ninja.",
+                    "Recompensas semanais de Caça pagas diretamente pelo Mizukami: 1.000 Ryos para cada Ninja Renegado da Névoa executado, e 500 Ryos para cada membro do alto escalão de outras vilas (Kami, Conselho, Líderes de Org) que for abatido."
+                ],
+                'color': 'sky'
+            },
+            'Policial': {
+                'regras': [
+                    "Realizar rondas e patrulhas diárias em torno das fronteiras da vila, obrigatoriamente vestindo o uniforme policial.",
+                    "Participar de forma ativa da defesa da Névoa em invasões e atuar agressivamente durante caçadas oficiais.",
+                    "Realizar a prisão do alvo em combate sempre que for taticamente possível."
+                ],
+                'bonificacoes': [
+                    "Autoridade máxima para exercer a habilidade de prisão sob criminosos e invasores derrotados.",
+                    "Recompensa financeira por cada prisão efetuada: Pagamento de 1.000 Ryos pela captura de Ninjas Renegados da Névoa, e 500 Ryos pela captura de Ninjas pertencentes a outras vilas."
+                ],
+                'color': 'sky'
+            },
+            'Médica': {
+                'regras': [
+                    "Priorização Tática Absoluta em invasões e caçadas: O médico deve sempre priorizar a própria vida primeiro; em segundo lugar a vida das Lideranças da vila (Kage/Conselho/Líderes); e apenas em terceiro lugar a vida dos demais membros e soldados.",
+                    "Uso obrigatório do uniforme médico da organização ao realizar/participar de invasões, ao atuar em eventos ou ao auxiliar e curar novatos pelas ruas da vila."
+                ],
+                'bonificacoes': [
+                    "Acesso restrito ao Jutsu Exclusivo da organização, que concede um buff vital de +10% de Chakra Máximo ao portador.",
+                    "Reconhecimento monetário por suporte contínuo: Médicos que curarem ativamente em grandes eventos, batalhas de spars na arena ou auxiliarem novatos gravemente feridos, receberão 500 Ryos por cada ação curativa catalogada."
+                ],
+                'color': 'red'
+            }
+        };
+
+        // --- FUNÇÕES DE CONTROLE DO MODAL ---
+        function openModal(orgName, type) {
+            const data = modalData[orgName];
+            if (!data) return;
+
+            const isRegras = type === 'regras';
+            
+            // Textos de Título
+            document.getElementById('modalTitle').innerText = isRegras ? `Regras: ${orgName}` : `Bonificações: ${orgName}`;
+            document.getElementById('modalSubtitle').innerText = isRegras ? "Deveres e Punições Oficiais" : "Vantagens e Privilégios Oficiais";
+
+            // Cores e Ícones Dinâmicos
+            const iconEl = document.getElementById('modalIcon');
+            const colorClass = data.color === 'red' ? 'text-red-500' : 'text-sky-400';
+            iconEl.setAttribute('data-lucide', isRegras ? 'scale' : 'gift');
+            iconEl.className = `w-6 h-6 ${colorClass}`;
+
+            // Gerar Conteúdo (Lista de itens)
+            const contentContainer = document.getElementById('modalContent');
+            contentContainer.innerHTML = ''; // Limpar anterior
+            
+            const list = document.createElement('ul');
+            list.className = 'space-y-3';
+
+            data[type].forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start gap-3 bg-slate-900/50 p-4 rounded border border-slate-700/50 shadow-inner';
+                
+                const bulletColor = isRegras ? 'text-red-400' : 'text-emerald-400';
+                const bulletIcon = isRegras ? 'alert-circle' : 'check-circle';
+                
+                li.innerHTML = `
+                    <i data-lucide="${bulletIcon}" class="w-5 h-5 mt-0.5 shrink-0 ${bulletColor}"></i>
+                    <span class="text-slate-300 leading-relaxed">${item}</span>
+                `;
+                list.appendChild(li);
+            });
+            contentContainer.appendChild(list);
+
+            // Mostrar Modal
+            const modal = document.getElementById('orgModal');
+            modal.classList.remove('hidden');
+            
+            // Re-renderizar ícones (pois acabamos de injetar HTML novo)
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('orgModal').classList.add('hidden');
+        }
+
+        window.addEventListener('load', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error('Falha ao carregar a biblioteca de ícones Lucide.');
+            }
+        });
+    </script>
+</body>
+</html>
